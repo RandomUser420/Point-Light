@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <script src="p5.min.js"></script>
+    <script src="p5.gui.js"></script>
+    <script src="quicksettings.js"></script>
+    <script src="p5.dom.js"></script>
+    
+  </head>
+  <body>
+    
+    <input type="number" id="colorRed">
+    <input type="number" id="colorGreen">
+    <input type="number" id="colorBlue">
+    
+    
+    <script>
+      var w = window.innerWidth;
+      var h = window.innerHeight;
+      var r;
+      var g;
+      var b;
+      
+      function setup() {
+        createCanvas(600 ,600,  WEBGL);
+        
+      }
+      // hue, position, colors, directional light
+      // different color modes change max value
+      function draw() {
+        background(0);
+        var r=document.getElementById("colorRed").value;
+        var g=document.getElementById("colorGreen").value;
+        var b=document.getElementById("colorBlue").value;
+        
+        let locx = mouseX - w/2;
+        let locy = mouseY - h/2;
+        
+        colorMode(HSB, 100);
+        pointLight(r, g, b, locx, locy, 150);
+        noStroke();
+        sphere(100);
+        
+      }
+    </script>
+  </body>
+</html>
